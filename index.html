@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>数学　比例・反比例　目次</title>
+    <style>
+        :root { --bg-color: #f8f9fa; --line-green: #06C755; }
+        body { font-family: sans-serif; background-color: var(--bg-color); margin: 0; padding: 0 16px 80px; box-sizing: border-box; }
+        .top-header { background: #1a5276; color: white; padding: 18px 24px; text-align: center; margin: 0 -16px 20px; }
+        .top-header h1 { margin: 0; font-size: 1.3em; letter-spacing: 2px; }
+        .top-header p { margin: 6px 0 0; font-size: 0.82em; opacity: 0.8; }
+        .container { max-width: 860px; margin: 0 auto; }
+        #reviewSection { display: none; background: #fff8f0; border: 2px solid #f39c12; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; }
+        #reviewSection h2 { margin: 0 0 12px; font-size: 1em; color: #e67e22; }
+        #reviewList { display: flex; flex-wrap: wrap; gap: 10px; }
+        .review-card { background: white; border: 2px solid #f39c12; border-radius: 8px; padding: 8px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+        .review-card a { text-decoration: none; color: #1a5276; font-weight: bold; }
+        .review-card a:hover { text-decoration: underline; }
+        .review-remove { background: none; border: none; cursor: pointer; color: #aaa; font-size: 16px; padding: 0 2px; }
+        .review-remove:hover { color: #e74c3c; }
+        #statsBar { background: white; border: 1.5px solid #ddd; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+        .stat-item { display: flex; flex-direction: column; align-items: center; min-width: 70px; }
+        .stat-num { font-size: 1.8em; font-weight: 900; color: #1a5276; line-height: 1.1; }
+        .stat-label { font-size: 11px; color: #888; margin-top: 2px; }
+        .stat-item.green .stat-num { color: #27ae60; }
+        .stat-item.orange .stat-num { color: #e67e22; }
+        .progress-wrap { flex: 1; min-width: 160px; }
+        .progress-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+        .progress-bar { height: 14px; background: #eee; border-radius: 7px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg,#27ae60,#2ecc71); border-radius: 7px; transition: width 0.5s; }
+        .unit-title { font-size: 1.05em; font-weight: 900; padding: 10px 16px; border-radius: 8px 8px 0 0; margin-top: 24px; display: flex; align-items: center; gap: 10px; }
+        .unit-title.blue { background: #1a5276; color: white; }
+        .unit-title.teal { background: #1e8449; color: white; }
+        .page-list { background: white; border: 2px solid #ddd; border-top: none; border-radius: 0 0 10px 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 4px; }
+        .page-item { display: flex; align-items: center; border-bottom: 1px solid #eee; transition: background 0.15s; }
+        .page-item:last-child { border-bottom: none; }
+        .page-item:hover { background: #f8f9fa; }
+        .page-item.s1 { background: #eafaf1; }
+        .page-item.s1:hover { background: #d5f5e3; }
+        .page-item.s3 { background: #d6eaf8; }
+        .page-item.s3:hover { background: #aed6f1; }
+        .page-item.sr { background: #fef9e7; border-left: 4px solid #f39c12; }
+        .page-num { font-weight: 900; font-size: 13px; padding: 14px 12px; min-width: 46px; text-align: center; align-self: stretch; display: flex; align-items: center; justify-content: center; border-right: 1px solid #eee; color: #1a5276; background: #f4f6f8; flex-shrink: 0; }
+        .page-info { flex: 1; padding: 10px 14px; }
+        .page-name { font-weight: bold; font-size: 14px; color: #1a5276; margin-bottom: 2px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .page-desc { font-size: 12px; color: #777; }
+        .bk { font-size: 11px; font-weight: 900; padding: 2px 7px; border-radius: 10px; }
+        .bk-y { background: #f1c40f; color: #333; }
+        .bk-r { background: #e74c3c; color: white; }
+        .bk-b { background: #2980b9; color: white; }
+        .sb { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: bold; }
+        .sb-none { background: #eee; color: #aaa; }
+        .sb-done { background: #27ae60; color: white; }
+        .sb-many { background: #2980b9; color: white; }
+        .sb-date { font-size: 11px; color: #aaa; }
+        .rev-star { color: #f39c12; font-size: 13px; }
+        .page-actions { display: flex; align-items: center; padding: 0 10px; flex-shrink: 0; }
+        .open-btn { text-decoration: none; background: #1a5276; color: white; padding: 7px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; transition: 0.2s; white-space: nowrap; }
+        .open-btn:hover { background: #154360; }
+        .open-btn.done { background: #27ae60; }
+        .open-btn.many { background: #2980b9; }
+        .page-item.coming { opacity: 0.4; pointer-events: none; }
+        .reset-btn { background: none; border: 1px solid #ddd; color: #aaa; padding: 7px 14px; border-radius: 8px; font-size: 12px; cursor: pointer; margin-top: 20px; }
+        .reset-btn:hover { border-color: #e74c3c; color: #e74c3c; }
+        .legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; margin-bottom: 16px; padding: 10px 14px; background: white; border-radius: 8px; border: 1px solid #eee; }
+        .leg-item { display: flex; align-items: center; gap: 5px; }
+        .leg-box { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+        .footer { text-align: center; margin-top: 24px; font-size: 12px; color: #aaa; }
+        .line-float-btn { position: fixed; bottom: 24px; right: 24px; background: var(--line-green); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none; font-weight: bold; font-size: 11px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000; transition: 0.2s; }
+        .line-float-btn:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+<a href="https://line.me/R/ti/p/@自分のID" target="_blank" class="line-float-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" width="28" height="28" style="margin-bottom:2px;">
+    質問する
+</a>
+<div class="top-header">
+    <h1>📐 数学　比例・反比例</h1>
+    <p>学習したいページを選んでください</p>
+</div>
+<div class="container">
+
+    <div id="statsBar">
+        <div class="stat-item"><div class="stat-num" id="totalN">12</div><div class="stat-label">総ページ数</div></div>
+        <div class="stat-item green"><div class="stat-num" id="studiedN">0</div><div class="stat-label">学習済み</div></div>
+        <div class="stat-item orange"><div class="stat-num" id="reviewN">0</div><div class="stat-label">復習リスト</div></div>
+        <div class="progress-wrap">
+            <div class="progress-label">学習進捗</div>
+            <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
+            <div style="font-size:11px;color:#888;margin-top:3px;"><span id="progPct">0</span>% 完了</div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <span style="font-weight:bold;color:#555;">色の意味：</span>
+        <span class="leg-item"><span class="leg-box" style="background:#fff;border:1px solid #ddd;"></span>未学習</span>
+        <span class="leg-item"><span class="leg-box" style="background:#eafaf1;"></span>学習済み（1〜2回）</span>
+        <span class="leg-item"><span class="leg-box" style="background:#d6eaf8;"></span>しっかり学習（3回以上）</span>
+        <span class="leg-item"><span class="leg-box" style="background:#fef9e7;border-left:3px solid #f39c12;"></span>⭐ 復習リスト</span>
+    </div>
+
+    <div id="reviewSection">
+        <h2>⭐ 復習リスト　— もう一度やりたい単元</h2>
+        <div id="reviewList"></div>
+    </div>
+
+    <div class="unit-title blue">📈 比例　〜座標・グラフ・式〜</div>
+    <div class="page-list">
+        <div class="page-item" id="item-hirei1"><div class="page-num">①</div><div class="page-info"><div class="page-name">座標とは <span class="bk bk-b">説明</span></div><div class="page-desc">x軸・y軸・原点・座標の読み方</div><div id="info-hirei1" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei1.html" class="open-btn" id="btn-hirei1">開く →</a></div></div>
+        <div class="page-item" id="item-hirei2"><div class="page-num">②</div><div class="page-info"><div class="page-name">座標の演習 <span class="bk bk-r">演習</span></div><div class="page-desc">一般の点・x軸上・y軸上の座標を読む</div><div id="info-hirei2" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei2.html" class="open-btn" id="btn-hirei2">開く →</a></div></div>
+        <div class="page-item" id="item-hirei3"><div class="page-num">③</div><div class="page-info"><div class="page-name">対称な点の座標 <span class="bk bk-b">説明</span></div><div class="page-desc">x軸・y軸について線対称，原点について点対称</div><div id="info-hirei3" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei3.html" class="open-btn" id="btn-hirei3">開く →</a></div></div>
+        <div class="page-item" id="item-hirei3b"><div class="page-num">④</div><div class="page-info"><div class="page-name">対称な点の演習 <span class="bk bk-r">演習</span></div><div class="page-desc">3種類の対称　各1問ずつ練習</div><div id="info-hirei3b" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei3b.html" class="open-btn" id="btn-hirei3b">開く →</a></div></div>
+        <div class="page-item" id="item-hirei4"><div class="page-num">⑤</div><div class="page-info"><div class="page-name">正比例とグラフ <span class="bk bk-b">説明</span></div><div class="page-desc">比例・比例定数・傾き・y=2xのグラフ</div><div id="info-hirei4" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei4.html" class="open-btn" id="btn-hirei4">開く →</a></div></div>
+        <div class="page-item" id="item-hirei5"><div class="page-num">⑥</div><div class="page-info"><div class="page-name">注意すべきグラフ <span class="bk bk-b">説明</span></div><div class="page-desc">y=−2x / y=−x/3 / y=−x　分数の傾きの読み方</div><div id="info-hirei5" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei5.html" class="open-btn" id="btn-hirei5">開く →</a></div></div>
+        <div class="page-item" id="item-hirei6"><div class="page-num">⑦</div><div class="page-info"><div class="page-name">演習１　グラフから式を求めよ <span class="bk bk-r">演習</span></div><div class="page-desc">6本のグラフから y=ax の式を読み取る</div><div id="info-hirei6" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei6.html" class="open-btn" id="btn-hirei6">開く →</a></div></div>
+        <div class="page-item" id="item-hirei7"><div class="page-num">⑧</div><div class="page-info"><div class="page-name">確認　グラフの式 <span class="bk bk-y">確認</span></div><div class="page-desc">3問・8本のグラフ　ヒントボタン付き</div><div id="info-hirei7" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei7.html" class="open-btn" id="btn-hirei7">開く →</a></div></div>
+        <div class="page-item" id="item-hirei8"><div class="page-num">⑨</div><div class="page-info"><div class="page-name">正比例の式(1) <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">y=ax とおいて a を求める　例題＋練習4問</div><div id="info-hirei8" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei8.html" class="open-btn" id="btn-hirei8">開く →</a></div></div>
+        <div class="page-item" id="item-hirei9"><div class="page-num">⑩</div><div class="page-info"><div class="page-name">正比例の式(2) <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">式を求めてから y の値を求める　例題＋練習3問</div><div id="info-hirei9" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei9.html" class="open-btn" id="btn-hirei9">開く →</a></div></div>
+        <div class="page-item" id="item-hirei10"><div class="page-num">⑪</div><div class="page-info"><div class="page-name">正比例の式(3) <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">表のア・イの値を求める　例題＋練習3問</div><div id="info-hirei10" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei10.html" class="open-btn" id="btn-hirei10">開く →</a></div></div>
+        <div class="page-item" id="item-hirei11"><div class="page-num">⑫</div><div class="page-info"><div class="page-name">確認　正比例の式 <span class="bk bk-y">確認</span></div><div class="page-desc">長崎・鹿児島・福島・青森県　入試問題4問</div><div id="info-hirei11" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei11.html" class="open-btn" id="btn-hirei11">開く →</a></div></div>
+    </div>
+
+    <div class="unit-title teal">📉 反比例　〜グラフ・式〜</div>
+    <div class="page-list">
+        <div class="page-item coming"><div class="page-num" style="background:#eafaf1;color:#1e8449;">①〜</div><div class="page-info"><div class="page-name">反比例のグラフ・式</div><div class="page-desc">準備中</div></div><div class="page-actions"><span style="color:#aaa;font-size:13px;padding:0 8px;">準備中</span></div></div>
+    </div>
+
+    <button class="reset-btn" onclick="resetAll()">🗑 学習記録をすべてリセット</button>
+    <div class="footer">比例・反比例　学習教材</div>
+</div>
+
+<script>
+var PAGES = [
+    {key:'hirei1', name:'① 座標とは', file:'hirei1.html'},
+    {key:'hirei2', name:'② 座標の演習', file:'hirei2.html'},
+    {key:'hirei3', name:'③ 対称な点の座標', file:'hirei3.html'},
+    {key:'hirei3b', name:'④ 対称な点の演習', file:'hirei3b.html'},
+    {key:'hirei4', name:'⑤ 正比例とグラフ', file:'hirei4.html'},
+    {key:'hirei5', name:'⑥ 注意すべきグラフ', file:'hirei5.html'},
+    {key:'hirei6', name:'⑦ 演習１', file:'hirei6.html'},
+    {key:'hirei7', name:'⑧ 確認（グラフ）', file:'hirei7.html'},
+    {key:'hirei8', name:'⑨ 正比例の式(1)', file:'hirei8.html'},
+    {key:'hirei9', name:'⑩ 正比例の式(2)', file:'hirei9.html'},
+    {key:'hirei10', name:'⑪ 正比例の式(3)', file:'hirei10.html'},
+    {key:'hirei11', name:'⑫ 確認（正比例の式）', file:'hirei11.html'},
+];
+
+function getData(key) {
+    try { return JSON.parse(localStorage.getItem('study_'+key)||'{"count":0,"review":false}'); }
+    catch(e) { return {count:0,review:false}; }
+}
+function setData(key,data) {
+    try { localStorage.setItem('study_'+key, JSON.stringify(data)); } catch(e) {}
+}
+function removeReview(key) {
+    var d=getData(key); d.review=false; setData(key,d); render();
+}
+function render() {
+    var studied=0, revItems=[];
+    PAGES.forEach(function(p) {
+        var d=getData(p.key);
+        var item=document.getElementById('item-'+p.key);
+        var info=document.getElementById('info-'+p.key);
+        var btn=document.getElementById('btn-'+p.key);
+        if (!item) return;
+        item.className='page-item';
+        if (d.review) item.classList.add('sr');
+        else if (d.count>=3) item.classList.add('s3');
+        else if (d.count>=1) item.classList.add('s1');
+        var ih='';
+        if (d.count===0) {
+            ih='<span class="sb sb-none">未学習</span>';
+        } else {
+            if (d.count<3) { ih='<span class="sb sb-done">✓ 学習済み '+d.count+'回</span>'; }
+            else { ih='<span class="sb sb-many">★ '+d.count+'回学習</span>'; }
+            if (d.lastDate) ih+=' <span class="sb-date">最終：'+d.lastDate+'</span>';
+            studied++;
+        }
+        if (d.review) ih+=' <span class="rev-star">⭐ 復習リスト</span>';
+        if (info) info.innerHTML=ih;
+        if (btn) {
+            btn.className='open-btn';
+            if (d.count>=3) btn.classList.add('many');
+            else if (d.count>=1) btn.classList.add('done');
+        }
+        if (d.review) revItems.push(p);
+    });
+    document.getElementById('studiedN').innerText=studied;
+    document.getElementById('reviewN').innerText=revItems.length;
+    var pct=Math.round(studied/PAGES.length*100);
+    document.getElementById('progFill').style.width=pct+'%';
+    document.getElementById('progPct').innerText=pct;
+    var revSec=document.getElementById('reviewSection');
+    var revList=document.getElementById('reviewList');
+    if (revItems.length>0) {
+        revSec.style.display='block';
+        var h='';
+        revItems.forEach(function(p) {
+            h+='<div class="review-card"><a href="'+p.file+'">⭐ '+p.name+'</a>'
+              +'<button class="review-remove" onclick="removeReview(\''+p.key+'\')" title="外す">✕</button></div>';
+        });
+        revList.innerHTML=h;
+    } else { revSec.style.display='none'; }
+}
+function resetAll() {
+    if (!confirm('学習記録をすべてリセットしますか？')) return;
+    PAGES.forEach(function(p) { try { localStorage.removeItem('study_'+p.key); } catch(e) {} });
+    render();
+}
+render();
+</script>
+</body>
+</html>
