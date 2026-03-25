@@ -55,6 +55,12 @@
         .sb-date { font-size: 11px; color: #aaa; }
         .rev-star { color: #f39c12; font-size: 13px; }
         .page-actions { display: flex; align-items: center; padding: 0 10px; flex-shrink: 0; }
+
+        .lv { font-size: 11px; font-weight: 900; padding: 2px 8px; border-radius: 10px; margin-left: 4px; }
+        .lv-ki  { background: #d5f5e3; color: #1e8449; }   /* 📗基礎   緑 */
+        .lv-hyo { background: #d6eaf8; color: #1a5276; }   /* 📘標準   青 */
+        .lv-ou  { background: #fdebd0; color: #d35400; }   /* 📙応用   橙 */
+        .lv-hat { background: #f9ebea; color: #c0392b; }   /* 📕発展   赤 */
         .open-btn { text-decoration: none; background: #1a5276; color: white; padding: 7px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; transition: 0.2s; white-space: nowrap; }
         .open-btn:hover { background: #154360; }
         .open-btn.done { background: #27ae60; }
@@ -82,7 +88,7 @@
 <div class="container">
 
     <div id="statsBar">
-        <div class="stat-item"><div class="stat-num" id="totalN">16</div><div class="stat-label">総ページ数</div></div>
+        <div class="stat-item"><div class="stat-num" id="totalN">19</div><div class="stat-label">総ページ数</div></div>
         <div class="stat-item green"><div class="stat-num" id="studiedN">0</div><div class="stat-label">学習済み</div></div>
         <div class="stat-item orange"><div class="stat-num" id="reviewN">0</div><div class="stat-label">復習リスト</div></div>
         <div class="progress-wrap">
@@ -98,6 +104,11 @@
         <span class="leg-item"><span class="leg-box" style="background:#eafaf1;"></span>学習済み（1〜2回）</span>
         <span class="leg-item"><span class="leg-box" style="background:#d6eaf8;"></span>しっかり学習（3回以上）</span>
         <span class="leg-item"><span class="leg-box" style="background:#fef9e7;border-left:3px solid #f39c12;"></span>⭐ 復習リスト</span>
+        <span style="font-weight:bold;color:#555;margin-left:12px;">難易度：</span>
+        <span class="leg-item"><span class="lv lv-ki">📗 基礎</span></span>
+        <span class="leg-item"><span class="lv lv-hyo">📘 標準</span></span>
+        <span class="leg-item"><span class="lv lv-ou">📙 応用</span></span>
+        <span class="leg-item"><span class="lv lv-hat">📕 発展</span></span>
     </div>
 
     <div id="reviewSection">
@@ -107,26 +118,29 @@
 
     <div class="unit-title blue">📈 比例　〜座標・グラフ・式〜</div>
     <div class="page-list">
-        <div class="page-item" id="item-hirei1"><div class="page-num">①</div><div class="page-info"><div class="page-name">座標とは <span class="bk bk-b">説明</span></div><div class="page-desc">x軸・y軸・原点・座標の読み方</div><div id="info-hirei1" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei1.html" class="open-btn" id="btn-hirei1">開く →</a></div></div>
-        <div class="page-item" id="item-hirei2"><div class="page-num">②</div><div class="page-info"><div class="page-name">座標の演習 <span class="bk bk-r">演習</span></div><div class="page-desc">一般の点・x軸上・y軸上の座標を読む</div><div id="info-hirei2" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei2.html" class="open-btn" id="btn-hirei2">開く →</a></div></div>
-        <div class="page-item" id="item-hirei3"><div class="page-num">③</div><div class="page-info"><div class="page-name">対称な点の座標 <span class="bk bk-b">説明</span></div><div class="page-desc">x軸・y軸について線対称，原点について点対称</div><div id="info-hirei3" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei3.html" class="open-btn" id="btn-hirei3">開く →</a></div></div>
-        <div class="page-item" id="item-hirei3b"><div class="page-num">④</div><div class="page-info"><div class="page-name">対称な点の演習 <span class="bk bk-r">演習</span></div><div class="page-desc">3種類の対称　各1問ずつ練習</div><div id="info-hirei3b" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei3b.html" class="open-btn" id="btn-hirei3b">開く →</a></div></div>
-        <div class="page-item" id="item-hirei4"><div class="page-num">⑤</div><div class="page-info"><div class="page-name">正比例とグラフ <span class="bk bk-b">説明</span></div><div class="page-desc">比例・比例定数・傾き・y=2xのグラフ</div><div id="info-hirei4" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei4.html" class="open-btn" id="btn-hirei4">開く →</a></div></div>
-        <div class="page-item" id="item-hirei5"><div class="page-num">⑥</div><div class="page-info"><div class="page-name">注意すべきグラフ <span class="bk bk-b">説明</span></div><div class="page-desc">y=−2x / y=−x/3 / y=−x　分数の傾きの読み方</div><div id="info-hirei5" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei5.html" class="open-btn" id="btn-hirei5">開く →</a></div></div>
-        <div class="page-item" id="item-hirei6"><div class="page-num">⑦</div><div class="page-info"><div class="page-name">演習１　グラフから式を求めよ <span class="bk bk-r">演習</span></div><div class="page-desc">6本のグラフから y=ax の式を読み取る</div><div id="info-hirei6" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei6.html" class="open-btn" id="btn-hirei6">開く →</a></div></div>
-        <div class="page-item" id="item-hirei7"><div class="page-num">⑧</div><div class="page-info"><div class="page-name">確認　グラフの式 <span class="bk bk-y">確認</span></div><div class="page-desc">3問・8本のグラフ　ヒントボタン付き</div><div id="info-hirei7" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei7.html" class="open-btn" id="btn-hirei7">開く →</a></div></div>
-        <div class="page-item" id="item-hirei8"><div class="page-num">⑨</div><div class="page-info"><div class="page-name">正比例の式(1) <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">y=ax とおいて a を求める　例題＋練習4問</div><div id="info-hirei8" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei8.html" class="open-btn" id="btn-hirei8">開く →</a></div></div>
-        <div class="page-item" id="item-hirei9"><div class="page-num">⑩</div><div class="page-info"><div class="page-name">正比例の式(2) <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">式を求めてから y の値を求める　例題＋練習3問</div><div id="info-hirei9" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei9.html" class="open-btn" id="btn-hirei9">開く →</a></div></div>
-        <div class="page-item" id="item-hirei10"><div class="page-num">⑪</div><div class="page-info"><div class="page-name">正比例の式(3) <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">表のア・イの値を求める　例題＋練習3問</div><div id="info-hirei10" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei10.html" class="open-btn" id="btn-hirei10">開く →</a></div></div>
-        <div class="page-item" id="item-hirei11"><div class="page-num">⑫</div><div class="page-info"><div class="page-name">確認　正比例の式 <span class="bk bk-y">確認</span></div><div class="page-desc">長崎・鹿児島・福島・青森県　入試問題4問</div><div id="info-hirei11" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei11.html" class="open-btn" id="btn-hirei11">開く →</a></div></div>
+        <div class="page-item" id="item-hirei1"><div class="page-num">①</div><div class="page-info"><div class="page-name">座標とは <span class="bk bk-b">説明</span> <span class="lv lv-ki">📗 基礎</span></div><div class="page-desc">x軸・y軸・原点・座標の読み方</div><div id="info-hirei1" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei1.html" class="open-btn" id="btn-hirei1">開く →</a></div></div>
+        <div class="page-item" id="item-hirei2"><div class="page-num">②</div><div class="page-info"><div class="page-name">座標の演習 <span class="bk bk-r">演習</span> <span class="lv lv-ki">📗 基礎</span></div><div class="page-desc">一般の点・x軸上・y軸上の座標を読む</div><div id="info-hirei2" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei2.html" class="open-btn" id="btn-hirei2">開く →</a></div></div>
+        <div class="page-item" id="item-hirei3"><div class="page-num">③</div><div class="page-info"><div class="page-name">対称な点の座標 <span class="bk bk-b">説明</span> <span class="lv lv-ki">📗 基礎</span></div><div class="page-desc">x軸・y軸について線対称，原点について点対称</div><div id="info-hirei3" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei3.html" class="open-btn" id="btn-hirei3">開く →</a></div></div>
+        <div class="page-item" id="item-hirei3b"><div class="page-num">④</div><div class="page-info"><div class="page-name">対称な点の演習 <span class="bk bk-r">演習</span> <span class="lv lv-ki">📗 基礎</span></div><div class="page-desc">3種類の対称　各1問ずつ練習</div><div id="info-hirei3b" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei3b.html" class="open-btn" id="btn-hirei3b">開く →</a></div></div>
+        <div class="page-item" id="item-hirei4"><div class="page-num">⑤</div><div class="page-info"><div class="page-name">正比例とグラフ <span class="bk bk-b">説明</span> <span class="lv lv-ki">📗 基礎</span></div><div class="page-desc">比例・比例定数・傾き・y=2xのグラフ</div><div id="info-hirei4" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei4.html" class="open-btn" id="btn-hirei4">開く →</a></div></div>
+        <div class="page-item" id="item-hirei5"><div class="page-num">⑥</div><div class="page-info"><div class="page-name">注意すべきグラフ <span class="bk bk-b">説明</span> <span class="lv lv-hyo">📘 標準</span></div><div class="page-desc">y=−2x / y=−x/3 / y=−x　分数の傾きの読み方</div><div id="info-hirei5" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei5.html" class="open-btn" id="btn-hirei5">開く →</a></div></div>
+        <div class="page-item" id="item-hirei6"><div class="page-num">⑦</div><div class="page-info"><div class="page-name">演習１　グラフから式を求めよ <span class="bk bk-r">演習</span> <span class="lv lv-hyo">📘 標準</span></div><div class="page-desc">6本のグラフから y=ax の式を読み取る</div><div id="info-hirei6" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei6.html" class="open-btn" id="btn-hirei6">開く →</a></div></div>
+        <div class="page-item" id="item-hirei7"><div class="page-num">⑧</div><div class="page-info"><div class="page-name">確認　グラフの式 <span class="bk bk-y">確認</span> <span class="lv lv-hyo">📘 標準</span></div><div class="page-desc">3問・8本のグラフ　ヒントボタン付き</div><div id="info-hirei7" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei7.html" class="open-btn" id="btn-hirei7">開く →</a></div></div>
+        <div class="page-item" id="item-hirei8"><div class="page-num">⑨</div><div class="page-info"><div class="page-name">正比例の式(1) <span class="bk bk-b">説明＋練習</span> <span class="lv lv-hyo">📘 標準</span></div><div class="page-desc">y=ax とおいて a を求める　例題＋練習4問</div><div id="info-hirei8" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei8.html" class="open-btn" id="btn-hirei8">開く →</a></div></div>
+        <div class="page-item" id="item-hirei9"><div class="page-num">⑩</div><div class="page-info"><div class="page-name">正比例の式(2) <span class="bk bk-b">説明＋練習</span> <span class="lv lv-ou">📙 応用</span></div><div class="page-desc">式を求めてから y の値を求める　例題＋練習3問</div><div id="info-hirei9" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei9.html" class="open-btn" id="btn-hirei9">開く →</a></div></div>
+        <div class="page-item" id="item-hirei10"><div class="page-num">⑪</div><div class="page-info"><div class="page-name">正比例の式(3) <span class="bk bk-b">説明＋練習</span> <span class="lv lv-ou">📙 応用</span></div><div class="page-desc">表のア・イの値を求める　例題＋練習3問</div><div id="info-hirei10" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei10.html" class="open-btn" id="btn-hirei10">開く →</a></div></div>
+        <div class="page-item" id="item-hirei11"><div class="page-num">⑫</div><div class="page-info"><div class="page-name">確認　正比例の式 <span class="bk bk-y">確認</span> <span class="lv lv-ou">📙 応用</span></div><div class="page-desc">長崎・鹿児島・福島・青森県　入試問題4問</div><div id="info-hirei11" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei11.html" class="open-btn" id="btn-hirei11">開く →</a></div></div>
     </div>
 
     <div class="unit-title teal">📉 反比例　〜グラフ・式〜</div>
     <div class="page-list">
-        <div class="page-item" id="item-hirei12"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑬</div><div class="page-info"><div class="page-name">反比例とは <span class="bk bk-b">説明</span></div><div class="page-desc">反比例の定義・y=a/xのグラフ・a正負のちがい・xy=aの変形</div><div id="info-hirei12" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei12.html" class="open-btn" id="btn-hirei12">開く →</a></div></div>
-        <div class="page-item" id="item-hirei13"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑭</div><div class="page-info"><div class="page-name">反比例の式を求める① <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">xy=a を使って式を求める　例題2題＋練習3問</div><div id="info-hirei13" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei13.html" class="open-btn" id="btn-hirei13">開く →</a></div></div>
-        <div class="page-item" id="item-hirei14"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑮</div><div class="page-info"><div class="page-name">反比例の式　演習① <span class="bk bk-r">演習</span></div><div class="page-desc">北海道・千葉・和歌山県　入試問題3問</div><div id="info-hirei14" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei14.html" class="open-btn" id="btn-hirei14">開く →</a></div></div>
-        <div class="page-item" id="item-hirei15"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑯</div><div class="page-info"><div class="page-name">反比例の式　演習② <span class="bk bk-r">演習</span></div><div class="page-desc">長野・高知・福岡県ほか　表・グラフから求める6問</div><div id="info-hirei15" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei15.html" class="open-btn" id="btn-hirei15">開く →</a></div></div>
+        <div class="page-item" id="item-hirei12"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑬</div><div class="page-info"><div class="page-name">反比例とは <span class="bk bk-b">説明</span> <span class="lv lv-ki">📗 基礎</span></div><div class="page-desc">反比例の定義・y=a/xのグラフ・a正負のちがい・xy=aの変形</div><div id="info-hirei12" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei12.html" class="open-btn" id="btn-hirei12">開く →</a></div></div>
+        <div class="page-item" id="item-hirei13"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑭</div><div class="page-info"><div class="page-name">反比例の式を求める① <span class="bk bk-b">説明＋練習</span> <span class="lv lv-hyo">📘 標準</span></div><div class="page-desc">xy=a を使って式を求める　例題2題＋練習3問</div><div id="info-hirei13" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei13.html" class="open-btn" id="btn-hirei13">開く →</a></div></div>
+        <div class="page-item" id="item-hirei14"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑮</div><div class="page-info"><div class="page-name">反比例の式　演習① <span class="bk bk-r">演習</span> <span class="lv lv-hyo">📘 標準</span></div><div class="page-desc">北海道・千葉・和歌山県　入試問題3問</div><div id="info-hirei14" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei14.html" class="open-btn" id="btn-hirei14">開く →</a></div></div>
+        <div class="page-item" id="item-hirei15"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑯</div><div class="page-info"><div class="page-name">反比例の式　演習② <span class="bk bk-r">演習</span> <span class="lv lv-ou">📙 応用</span></div><div class="page-desc">長野・高知・福岡県ほか　表・グラフから求める6問</div><div id="info-hirei15" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei15.html" class="open-btn" id="btn-hirei15">開く →</a></div></div>
+    <div class="page-item" id="item-hirei17"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑰</div><div class="page-info"><div class="page-name">反比例の応用①　変域 <span class="bk bk-r">応用</span> <span class="lv lv-ou">📙 応用</span></div><div class="page-desc">変域の求め方・不等号での表し方　例題＋練習</div><div id="info-hirei17" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei17.html" class="open-btn" id="btn-hirei17">開く →</a></div></div>
+        <div class="page-item" id="item-hirei18"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑱</div><div class="page-info"><div class="page-name">反比例の応用②　動点 <span class="bk bk-r">発展</span> <span class="lv lv-hat">📕 発展</span></div><div class="page-desc">動点と面積・変域・グラフ　例題＋練習</div><div id="info-hirei18" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei18.html" class="open-btn" id="btn-hirei18">開く →</a></div></div>
+        <div class="page-item" id="item-hirei19"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑲</div><div class="page-info"><div class="page-name">反比例の応用③　整数の問題 <span class="bk bk-r">発展</span> <span class="lv lv-hat">📕 発展</span></div><div class="page-desc">x・y座標がともに整数になる点の個数　例題＋練習</div><div id="info-hirei19" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei19.html" class="open-btn" id="btn-hirei19">開く →</a></div></div>
     </div>
 
     <button class="reset-btn" onclick="resetAll()">🗑 学習記録をすべてリセット</button>
@@ -151,6 +165,10 @@ var PAGES = [
     {key:'hirei13', name:'⑭ 反比例の式を求める①', file:'hirei13.html'},
     {key:'hirei14', name:'⑮ 反比例の式　演習①', file:'hirei14.html'},
     {key:'hirei15', name:'⑯ 反比例の式　演習②', file:'hirei15.html'},
+    {key:'hirei16', name:'⑰ 反比例の応用①（交点）', file:'hirei16.html'},
+    {key:'hirei17', name:'⑱ 反比例の応用②（変域）', file:'hirei17.html'},
+    {key:'hirei18', name:'⑲ 反比例の応用③（動点）', file:'hirei18.html'},
+    {key:'hirei19', name:'⑳ 反比例の応用④（整数）', file:'hirei19.html'},
 ];
 
 function getData(key) {
