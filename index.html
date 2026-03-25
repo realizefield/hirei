@@ -82,7 +82,7 @@
 <div class="container">
 
     <div id="statsBar">
-        <div class="stat-item"><div class="stat-num" id="totalN">12</div><div class="stat-label">総ページ数</div></div>
+        <div class="stat-item"><div class="stat-num" id="totalN">16</div><div class="stat-label">総ページ数</div></div>
         <div class="stat-item green"><div class="stat-num" id="studiedN">0</div><div class="stat-label">学習済み</div></div>
         <div class="stat-item orange"><div class="stat-num" id="reviewN">0</div><div class="stat-label">復習リスト</div></div>
         <div class="progress-wrap">
@@ -123,7 +123,10 @@
 
     <div class="unit-title teal">📉 反比例　〜グラフ・式〜</div>
     <div class="page-list">
-        <div class="page-item coming"><div class="page-num" style="background:#eafaf1;color:#1e8449;">①〜</div><div class="page-info"><div class="page-name">反比例のグラフ・式</div><div class="page-desc">準備中</div></div><div class="page-actions"><span style="color:#aaa;font-size:13px;padding:0 8px;">準備中</span></div></div>
+        <div class="page-item" id="item-hirei12"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑬</div><div class="page-info"><div class="page-name">反比例とは <span class="bk bk-b">説明</span></div><div class="page-desc">反比例の定義・y=a/xのグラフ・a正負のちがい・xy=aの変形</div><div id="info-hirei12" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei12.html" class="open-btn" id="btn-hirei12">開く →</a></div></div>
+        <div class="page-item" id="item-hirei13"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑭</div><div class="page-info"><div class="page-name">反比例の式を求める① <span class="bk bk-b">説明＋練習</span></div><div class="page-desc">xy=a を使って式を求める　例題2題＋練習3問</div><div id="info-hirei13" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei13.html" class="open-btn" id="btn-hirei13">開く →</a></div></div>
+        <div class="page-item" id="item-hirei14"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑮</div><div class="page-info"><div class="page-name">反比例の式　演習① <span class="bk bk-r">演習</span></div><div class="page-desc">北海道・千葉・和歌山県　入試問題3問</div><div id="info-hirei14" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei14.html" class="open-btn" id="btn-hirei14">開く →</a></div></div>
+        <div class="page-item" id="item-hirei15"><div class="page-num" style="background:#eafaf1;color:#1e8449;">⑯</div><div class="page-info"><div class="page-name">反比例の式　演習② <span class="bk bk-r">演習</span></div><div class="page-desc">長野・高知・福岡県ほか　表・グラフから求める6問</div><div id="info-hirei15" style="margin-top:4px;"></div></div><div class="page-actions"><a href="hirei15.html" class="open-btn" id="btn-hirei15">開く →</a></div></div>
     </div>
 
     <button class="reset-btn" onclick="resetAll()">🗑 学習記録をすべてリセット</button>
@@ -144,6 +147,10 @@ var PAGES = [
     {key:'hirei9', name:'⑩ 正比例の式(2)', file:'hirei9.html'},
     {key:'hirei10', name:'⑪ 正比例の式(3)', file:'hirei10.html'},
     {key:'hirei11', name:'⑫ 確認（正比例の式）', file:'hirei11.html'},
+    {key:'hirei12', name:'⑬ 反比例とは', file:'hirei12.html'},
+    {key:'hirei13', name:'⑭ 反比例の式を求める①', file:'hirei13.html'},
+    {key:'hirei14', name:'⑮ 反比例の式　演習①', file:'hirei14.html'},
+    {key:'hirei15', name:'⑯ 反比例の式　演習②', file:'hirei15.html'},
 ];
 
 function getData(key) {
